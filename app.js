@@ -7,17 +7,15 @@ string.
 
 var makeWord = function (initialLetters) {
   //Defining the word object that is to be returned.
-  var word = {
-    letters : initialLetters || ""
-  };
-  _.extend(word, makeWord.sharedWordMethods);
+  var word = Object.create(wordPrototype);
+  word.letters = initialLetters || "";
   return word;
 };
-
-/*The methods that are shared between all instances of the word 
-object.
+/*The prototype that word objects delegate failed look-ups to.
+letters is a property that should not be taken from the property because
+each instance of the word object should have its own letters property.
 */
-makeWord.sharedWordMethods = {
+var wordPrototype = {
   add: function (lettersToAdd) {
     this.letters += lettersToAdd;
   }
