@@ -6,15 +6,21 @@ string.
 */
 
 var makeWord = function (initialLetters) {
+  //Defining the word object that is to be returned.
   var word = {
     letters : initialLetters || "",
-    add : add
+    add : sharedWordMethods.add
   };
   return word;
 };
 
-var add = function (lettersToAdd) {
-  this.letters += lettersToAdd;
+/*The methods that are shared between all instances of the word 
+object.
+*/
+var sharedWordMethods = {
+  add: function (lettersToAdd) {
+    this.letters += lettersToAdd;
+  }
 };
 
 //Testing the function.
