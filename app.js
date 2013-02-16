@@ -8,9 +8,9 @@ string.
 var makeWord = function (initialLetters) {
   //Defining the word object that is to be returned.
   var word = {
-    letters : initialLetters || "",
-    add : makeWord.sharedWordMethods.add
+    letters : initialLetters || ""
   };
+  _.extend(word, makeWord.sharedWordMethods);
   return word;
 };
 
