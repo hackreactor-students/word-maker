@@ -1,6 +1,6 @@
 var makeWord = function (initialLetters) {
   var word = {
-    letters : initialLetters,
+    letters : initialLetters || "",
     add : function (lettersToAdd) {
       letters += lettersToAdd;
     }
@@ -8,5 +8,5 @@ var makeWord = function (initialLetters) {
   return word;
 }
 
-var testWord = makeWord("The makeWord function worked.");
+var testWord = makeWord();
 alert(testWord.letters);
