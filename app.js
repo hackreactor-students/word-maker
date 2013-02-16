@@ -9,7 +9,7 @@ var makeWord = function (initialLetters) {
   //Defining the word object that is to be returned.
   var word = {
     letters : initialLetters || "",
-    add : sharedWordMethods.add
+    add : makeWord.sharedWordMethods.add
   };
   return word;
 };
@@ -17,7 +17,7 @@ var makeWord = function (initialLetters) {
 /*The methods that are shared between all instances of the word 
 object.
 */
-var sharedWordMethods = {
+makeWord.sharedWordMethods = {
   add: function (lettersToAdd) {
     this.letters += lettersToAdd;
   }
