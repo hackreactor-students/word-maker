@@ -4,23 +4,15 @@ If an argument is given, the letters property will be initialized
 to that. Else, the letters property is initialized to an empty
 string.
 */
-
-var makeWord = function (initialLetters) {
-  //Defining the word object that is to be returned.
-  var word = Object.create(wordPrototype);
-  word.letters = initialLetters || "";
-  return word;
+var Word = function (initialLetters) {
+  this.letters = initialLetters || "";
+  this.add = add;
 };
-/*The prototype that word objects delegate failed look-ups to.
-letters is a property that should not be taken from the property because
-each instance of the word object should have its own letters property.
-*/
-var wordPrototype = {
-  add: function (lettersToAdd) {
-    this.letters += lettersToAdd;
-  }
+
+var add = function (lettersToAdd) {
+  this.letters += lettersToAdd;
 };
 
 //Testing the function.
-var testWord = makeWord("What up cuz.");
+var testWord = new Word();
 alert(testWord.letters);
