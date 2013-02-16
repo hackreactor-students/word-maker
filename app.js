@@ -1,9 +1,12 @@
-var makeWord = function () {
+var makeWord = function (initialLetters) {
   var word = {
-    letters : "",
+    letters : initialLetters,
     add : function (lettersToAdd) {
-      return letters += lettersToAdd;
+      letters += lettersToAdd;
     }
   };
   return word;
 }
+
+var testWord = makeWord("The makeWord function worked.");
+alert(testWord.letters);
